@@ -3,3 +3,66 @@
 @tailwind utilities;
 
 
+
+body {
+  background-color: #C8C2AA;
+  background-size: 4px 4px;
+  background-image: linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,.07) 4px),
+    linear-gradient(transparent, transparent 3px, rgba(0,0,0,.07) 4px);
+  color: #4D493E;
+  font-weight: 300;
+  margin: 0;
+  min-height: 100vh;
+  box-shadow: inset 0 0 150px rgba(#4D493E, .4), inset 0 0 150px rgba(#4D493E, .3);
+  
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  letter-spacing: .1rem;
+}
+
+
+button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  padding: .4rem 1rem;
+  background-color: rgba(#4D493E, .35);
+  color: #4D493E;
+  box-sizing: content-box;
+  position: relative;
+  border: 1px solid transparent;
+  border-left: none;
+  border-right: none;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0; top: 3px; bottom: 3px;
+    width: 0;
+    background-color: #4D493E;
+    transition: width .2s;
+  }
+  
+  &::after {
+    content: "";
+    display: none;
+    position: absolute;
+    background: #4D493E;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+  }
+  
+  &:hover, &:focus {
+    background-color: transparent;
+    color: #C8C2AA;
+    border-color: #4D493E;
+    
+    &::before {
+      width: 100%;
+    }
+  }
+}
